@@ -7,7 +7,7 @@ echo "Execute azure-credential-setup.sh - Start---------------------------------
 ## Create Azure Credentials
 REPO_NAME=$(basename `git rev-parse --show-toplevel`)
 
-SERVICE_PRINCIPAL_NAME_WLS_VM="sp-${REPO_NAME}-$(date +%s)"
+SERVICE_PRINCIPAL_NAME_WLS_VM="sp-${REPO_NAME}-wls-vm-$(date +%s)"
 echo "Creating Azure Service Principal with name: $SERVICE_PRINCIPAL_NAME_WLS_VM"
 SUBSCRIPTION_ID=$(az account show --query id -o tsv| tr -d '\r\n')
 echo "SUBSCRIPTION_ID="$SUBSCRIPTION_ID
