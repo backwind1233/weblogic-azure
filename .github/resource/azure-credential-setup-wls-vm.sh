@@ -2,7 +2,8 @@
 
 set -Eeuo pipefail
 
-echo "Execute azure-credential-setup.sh - Start------------------------------------------"
+CurrentFileName=$(basename "$0")
+echo "Execute $CurrentFileName - Start------------------------------------------"
 
 ## Create Azure Credentials
 REPO_NAME=$(basename `git rev-parse --show-toplevel`)
@@ -17,4 +18,4 @@ AZURE_CREDENTIALS=$(az ad sp create-for-rbac --name ${SERVICE_PRINCIPAL_NAME_WLS
 gh secret set "AZURE_CREDENTIALS" -b"${AZURE_CREDENTIALS}"
 gh variable set "SERVICE_PRINCIPAL_NAME_WLS_VM" -b"${SERVICE_PRINCIPAL_NAME_WLS_VM}"
 
-echo "Execute azure-credential-setup.sh - End--------------------------------------------"
+echo "Execute $CurrentFileName - End--------------------------------------------"
